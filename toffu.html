@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sesame Tofu Salad Recipe</title>
+    <link rel="stylesheet" href="toffu.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Header Section -->
+      <div class="header">
+        <div class="header-left">
+          <div class="location-container">
+            <div class="location-label">Location</div>
+            <div class="location-value">
+              <div>Bengaluru, Karnataka</div>
+              <div class="location-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 8.75C5.76 8.75 4.75 7.74 4.75 6.5C4.75 5.26 5.76 4.25 7 4.25C8.24 4.25 9.25 5.26 9.25 6.5C9.25 7.74 8.24 8.75 7 8.75ZM7 5.25C6.31 5.25 5.75 5.81 5.75 6.5C5.75 7.19 6.31 7.75 7 7.75C7.69 7.75 8.25 7.19 8.25 6.5C8.25 5.81 7.69 5.25 7 5.25Z" fill="#D8D8D8"/>
+                  <path d="M7 13.3334C6.09167 13.3334 5.18333 13.0084 4.48333 12.3584C2.65 10.6334 0.833333 8.05008 0.833333 5.25008C0.833333 2.73341 3.15833 0.666748 7 0.666748C10.8417 0.666748 13.1667 2.73341 13.1667 5.25008C13.1667 8.05008 11.35 10.6334 9.51667 12.3584C8.81667 13.0084 7.90833 13.3334 7 13.3334ZM7 1.66675C3.85 1.66675 1.83333 3.25841 1.83333 5.25008C1.83333 7.65841 3.5 9.99175 5.15 11.5501C6.05 12.3917 7.95 12.3917 8.85 11.5501C10.5 9.99175 12.1667 7.65841 12.1667 5.25008C12.1667 3.25841 10.15 1.66675 7 1.66675Z" fill="#D8D8D8"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="search-container">
+            <button class="filter-button" aria-label="Filter">
+              <div class="filter-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.3333 5.83325H13.3333" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M5 5.83325H1.66667" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8.33333 9.16659C10.1743 9.16659 11.6667 7.67421 11.6667 5.83325C11.6667 3.99229 10.1743 2.49992 8.33333 2.49992C6.49238 2.49992 5 3.99229 5 5.83325C5 7.67421 6.49238 9.16659 8.33333 9.16659Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M18.3333 14.1667H15" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6.66667 14.1667H1.66667" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M11.6667 17.5001C13.5076 17.5001 15 16.0077 15 14.1667C15 12.3258 13.5076 10.8334 11.6667 10.8334C9.82573 10.8334 8.33335 12.3258 8.33335 14.1667C8.33335 16.0077 9.82573 17.5001 11.6667 17.5001Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+            <div class="search-input-container">
+              <div class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.58341 17.5001C13.9557 17.5001 17.5001 13.9557 17.5001 9.58341C17.5001 5.21116 13.9557 1.66675 9.58341 1.66675C5.21116 1.66675 1.66675 5.21116 1.66675 9.58341C1.66675 13.9557 5.21116 17.5001 9.58341 17.5001Z" stroke="#A2A2A2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M18.3334 18.3334L16.6667 16.6667" stroke="#A2A2A2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <input type="text" placeholder="Search coffee" aria-label="Search coffee" />
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          <img src="https://cdn.builder.io/api/v1/image/assets/7e20e875fd5c44898c8ff6c5768729c4/10622e9216d1fce4ac370b16f20e94d3265f6991?placeholderIfAbsent=true" alt="Coffee beans" class="coffee-beans-img" />
+          <img src="https://cdn.builder.io/api/v1/image/assets/7e20e875fd5c44898c8ff6c5768729c4/ff7950483d86bf74eaef0150e6a2fde1d97cb349?placeholderIfAbsent=true" alt="Coffee cup" class="coffee-cup-img" />
+        </div>
+      </div>
+
+      <!-- Hero Section -->
+      <div class="hero">
+        <img src="https://cdn.builder.io/api/v1/image/assets/7e20e875fd5c44898c8ff6c5768729c4/b9e4a2357f44d676998c40233b3f0f94aab33fd4?placeholderIfAbsent=true" alt="Sesame Tofu Salad" class="hero-img" />
+        <h1 class="hero-title">Sesame Tofu Salad</h1>
+      </div>
+
+      <!-- Recipe Content Section -->
+      <div class="recipe-content">
+        <section class="recipe-section">
+          <h2 class="section-title">Ingredients:</h2>
+          <ul class="ingredients-list">
+            <li>1 block (14 oz) firm tofu, pressed & cubed</li>
+            <li>4 cups mixed greens (spinach, arugula, romaine)</li>
+            <li>1 cup shredded carrots</li>
+            <li>1 cup cucumber, sliced</li>
+            <li>½ cup red bell pepper, thinly sliced</li>
+            <li>2 tbsp sesame seeds, toasted</li>
+            <li>2 tbsp green onions, chopped</li>
+            <li>¼ cup edamame (optional)</li>
+          </ul>
+        </section>
+
+        <section class="recipe-section">
+          <h2 class="section-title">Dressing:</h2>
+          <ul class="ingredients-list">
+            <li>2 tbsp low-sodium soy sauce or tamari</li>
+            <li>1 tbsp rice vinegar</li>
+            <li>1 tbsp lemon juice</li>
+            <li>1 tsp sesame oil</li>
+            <li>1 tsp honey or maple syrup</li>
+            <li>1 tsp grated ginger</li>
+            <li>1 clove garlic, minced</li>
+            <li>1 tsp toasted sesame seeds</li>
+          </ul>
+        </section>
+
+        <section class="recipe-section">
+          <h2 class="section-title">Tofu Marinade:</h2>
+          <ul class="ingredients-list">
+            <li>1 tbsp low-sodium soy sauce</li>
+            <li>1 tsp sesame oil</li>
+            <li>½ tsp garlic powder</li>
+            <li>½ tsp paprika</li>
+          </ul>
+        </section>
+
+        <section class="recipe-section">
+          <h2 class="section-title">Instructions:</h2>
+          <ol class="instructions-list">
+            <li>Marinate tofu for 10 minutes. Bake at 400°F (200°C) for 20–25 min or air-fry at 375°F (190°C) for 12–15 min.</li>
+            <li>Whisk dressing ingredients together.</li>
+            <li>Assemble salad with greens, veggies, edamame, and tofu.</li>
+            <li>Drizzle dressing, toss, and garnish with sesame seeds & green onions.</li>
+          </ol>
+        </section>
+
+        <section class="recipe-section">
+          <h2 class="section-title diet-adaptations">Dietary Adaptations:</h2>
+
+          <div class="adaptation">
+            <h3 class="adaptation-title">For Gluten-Free:</h3>
+            <ul class="adaptation-list">
+              <li>Use tamari instead of soy sauce.</li>
+            </ul>
+          </div>
+
+          <div class="adaptation">
+            <h3 class="adaptation-title">For Low-Sodium:</h3>
+            <ul class="adaptation-list">
+              <li>Reduce soy sauce and use coconut aminos.</li>
+              <li>Use less sesame oil or omit it.</li>
+            </ul>
+          </div>
+
+          <div class="adaptation">
+            <h3 class="adaptation-title">For Oil-Free:</h3>
+            <ul class="adaptation-list">
+              <li>Omit sesame oil in dressing and marinade.</li>
+              <li>Bake tofu without oil.</li>
+            </ul>
+          </div>
+
+          <div class="adaptation">
+            <h3 class="adaptation-title">For Low-Sugar:</h3>
+            <ul class="adaptation-list">
+              <li>Skip honey/maple syrup or use stevia.</li>
+            </ul>
+          </div>
+
+          <div class="adaptation">
+            <h3 class="adaptation-title">For High-Protein:</h3>
+            <ul class="adaptation-list">
+              <li>Increase tofu or add more edamame.</li>
+              <li>Sprinkle hemp seeds for extra protein.</li>
+            </ul>
+          </div>
+
+          <p class="adaptation-note">This version keeps it healthy, adaptable, and diet-friendly! 😊</p>
+        </section>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div class="bottom-navigation-container">
+        <div class="bottom-navigation">
+          <div class="nav-item active">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="home-icon">
+              <path d="M9.02 2.84004L3.63 7.04004C2.73 7.74004 2 9.23004 2 10.36V17.77C2 20.09 3.89 21.99 6.21 21.99H17.79C20.11 21.99 22 20.09 22 17.78V10.5C22 9.29004 21.19 7.74004 20.2 7.05004L14.02 2.72004C12.62 1.74004 10.37 1.79004 9.02 2.84004Z" stroke="#C67C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 17.99V14.99" stroke="#C67C4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="active-indicator"></div>
+          </div>
+          <div class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.69C2 5.6 4.49 3.1 7.56 3.1C9.38 3.1 10.99 3.98 12 5.34C13.01 3.98 14.63 3.1 16.44 3.1C19.51 3.1 22 5.6 22 8.69C22 15.69 15.52 19.82 12.62 20.81Z" stroke="#8D8D8D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 2H3.74001C4.82001 2 5.67 2.93 5.58 4L4.75 13.96C4.61 15.59 5.89999 16.99 7.53999 16.99H18.19C19.63 16.99 20.89 15.81 21 14.38L21.54 6.88C21.66 5.22 20.4 3.87 18.73 3.87H5.82001" stroke="#8D8D8D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16.25 22C16.9404 22 17.5 21.4404 17.5 20.75C17.5 20.0596 16.9404 19.5 16.25 19.5C15.5596 19.5 15 20.0596 15 20.75C15 21.4404 15.5596 22 16.25 22Z" stroke="#8D8D8D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.25 22C8.94036 22 9.5 21.4404 9.5 20.75C9.5 20.0596 8.94036 19.5 8.25 19.5C7.55964 19.5 7 20.0596 7 20.75C7 21.4404 7.55964 22 8.25 22Z" stroke="#8D8D8D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 8H21" stroke="#8D8D8D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.12 12.78C12.05 12.77 11.96 12.77 11.88 12.78C10.12 12.72 8.71997 11.28 8.71997 9.51C8.71997 7.7 10.18 6.23 12 6.23C13.81 6.23 15.28 7.7 15.28 9.51C15.27 11.28 13.88 12.72 12.12 12.78Z" stroke="#8D8D8D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18.74 19.38C16.96 21.01 14.6 22 12 22C9.40001 22 7.04001 21.01 5.26001 19.38C5.36001 18.44 5.96001 17.52 7.03001 16.8C9.77001 14.98 14.25 14.98 16.97 16.8C18.04 17.52 18.64 18.44 18.74 19.38Z" stroke="#8D8D8D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#8D8D8D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="bottom-indicator"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,339 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Sora", sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Main Content */
+.main-content {
+  text-align: center;
+  padding: 0 38px;
+  margin-bottom: 90px;
+}
+
+.recipe-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.recipe-image {
+   width: 100%;
+    height: auto;
+    min-height: 180px;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 50px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.recipe-title {
+  font-size: 28px;
+  margin-top: 15px;
+}
+
+/* Recipe Details */
+.recipe-details {
+  margin-top: 20px;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.ingredients-list,
+.instructions-list {
+  list-style: none;
+}
+
+.ingredients-list li,
+.instructions-list li {
+  margin-bottom: 5px;
+}
+/* Updated Header Styles (Matching rolls.css) */
+.header {
+  background-color: black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  gap: 8px;
+}
+
+.location-label {
+  font-size: 1.25rem;
+  color: #A2A2A2;
+}
+
+.location-city {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #D8D8D8;
+}
+
+.logo {
+  max-width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.filter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 74px;
+  background-color: #C67C4E;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+  background-color: #b06c43;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 467px;
+  height: 74px;
+  background-color: #F8F8F8;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  color: #A2A2A2;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .search-container {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .recipe-title {
+    font-size: 22px;
+  }
+
+  .recipe-image {
+    width: 100%;
+  }
+
+  .footer {
+    flex-direction: row;
+    padding: 10px;
+  }
+}
+
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Sora", sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Updated Header Styles (Matching rolls.css) */
+.header {
+  background-color: black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  gap: 8px;
+}
+
+.location-label {
+  font-size: 1.25rem;
+  color: #A2A2A2;
+}
+
+.location-city {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #D8D8D8;
+}
+
+.logo {
+  max-width: 100px;
+  height: auto;
+  object-fit: contain;
+  margin-top: 20px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.filter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 74px;
+  background-color: #C67C4E;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+  background-color: #b06c43;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 467px;
+  height: 74px;
+  background-color: #F8F8F8;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  color: #A2A2A2;
+}
+
+/* Updated Footer Styles (Matching rolls.css) */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 56px;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background-color: white;
+  padding: 24px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.footer-item:hover {
+  transform: scale(1.1);
+}
+
+.footer-item-active {
+  position: relative;
+}
+
+.active-indicator {
+  width: 10px;
+  height: 5px;
+  background-color: #C67C4E;
+  border-radius: 18px;
+  margin-top: 6px;
+}
+/* Reset and Base Styles */
+

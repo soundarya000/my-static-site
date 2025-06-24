@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee Shop</title>
+  <link rel="stylesheet" href="styles1.css" />
+  <link rel="stylesheet" href="product-grid.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 4% auto;
+      padding: 5px;
+      width: 90%;
+      height: 90%;
+      max-width: 500px;
+      height:70vh;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(172, 118, 118, 0.852);
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-content">
+        <div class="header-top">
+          <div class="location-container">
+            <p class="location-label">Location</p>
+            <div class="location-dropdown">
+              <p class="location-value">Bengaluru, Karnataka</p>
+              <button class="dropdown-button" aria-label="Change location">▼</button>
+            </div>
+          </div>
+          <div class="logo-container">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/fccc7b837d5230ced5c7987e8c02930e76f8abb0"
+              alt="Logo" class="logo-image" />
+          </div>
+        </div>
+      </div>
+      <div class="search-section">
+        <div class="search-bar-container">
+          <button class="filter-button" aria-label="Filter options">
+            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M9.33262 15.494H4.08179C3.73679 15.494 3.45679 15.214 3.45679 14.869C3.45679 14.524 3.73679 14.244 4.08179 14.244H9.33262C9.67762 14.244 9.95762 14.524 9.95762 14.869C9.95762 15.214 9.67762 15.494 9.33262 15.494Z"
+                fill="white"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M16.925 7.41699H11.675C11.33 7.41699 11.05 7.13699 11.05 6.79199C11.05 6.44699 11.33 6.16699 11.675 6.16699H16.925C17.27 6.16699 17.55 6.44699 17.55 6.79199C17.55 7.13699 17.27 7.41699 16.925 7.41699Z"
+                fill="white"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M6.02654 5.41663C5.28571 5.41663 4.68237 6.01329 4.68237 6.74746C4.68237 7.48079 5.28571 8.07663 6.02654 8.07663C6.76821 8.07663 7.37071 7.48079 7.37071 6.74746C7.37071 6.01329 6.76821 5.41663 6.02654 5.41663ZM6.02654 9.32663C4.59654 9.32663 3.43237 8.16996 3.43237 6.74746C3.43237 5.32496 4.59654 4.16663 6.02654 4.16663C7.45737 4.16663 8.62071 5.32496 8.62071 6.74746C8.62071 8.16996 7.45737 9.32663 6.02654 9.32663Z"
+                fill="white"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M15.4224 13.5067C14.6807 13.5067 14.0774 14.1034 14.0774 14.8367C14.0774 15.5709 14.6807 16.1667 15.4224 16.1667C16.1632 16.1667 16.7657 15.5709 16.7657 14.8367C16.7657 14.1034 16.1632 13.5067 15.4224 13.5067ZM15.4224 17.4167C13.9916 17.4167 12.8274 16.2592 12.8274 14.8367C12.8274 13.4142 13.9916 12.2567 15.4224 12.2567C16.8524 12.2567 18.0157 13.4142 18.0157 14.8367C18.0157 16.2592 16.8524 17.4167 15.4224 17.4167Z"
+                fill="white"></path>
+            </svg>
+          </button>
+          <div class="search-input-wrapper">
+            <button class="search-icon" aria-label="Search">
+              <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M10.6478 2.91663C6.86198 2.91663 3.78198 5.99579 3.78198 9.78163C3.78198 13.5675 6.86198 16.6475 10.6478 16.6475C14.4328 16.6475 17.5128 13.5675 17.5128 9.78163C17.5128 5.99579 14.4328 2.91663 10.6478 2.91663ZM10.6478 17.8975C6.17282 17.8975 2.53198 14.2566 2.53198 9.78163C2.53198 5.30663 6.17282 1.66663 10.6478 1.66663C15.1228 1.66663 18.7628 5.30663 18.7628 9.78163C18.7628 14.2566 15.1228 17.8975 10.6478 17.8975Z"
+                  fill="#2B2B2B"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M18.7941 18.9347C18.6349 18.9347 18.4749 18.8739 18.3524 18.7522L15.4157 15.8239C15.1716 15.5797 15.1707 15.1839 15.4149 14.9397C15.6582 14.6939 16.0541 14.6955 16.2991 14.938L19.2357 17.8672C19.4799 18.1114 19.4807 18.5064 19.2366 18.7505C19.1149 18.8739 18.9541 18.9347 18.7941 18.9347Z"
+                  fill="#2B2B2B"></path>
+              </svg>
+            </button>
+            <input type="text" placeholder="Search coffee" class="search-input" aria-label="Search for coffee" />
+          </div>
+          <!-- User Logo (Click to Show Details) -->
+          <div class="user-logo-container">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/be0fb604e4ef3e5acbbf0bdcef1392e456613b37"
+              alt="Account" class="account-image" id="user-logo" />
+
+            <!-- User Details Popup (Initially Hidden) -->
+            <div id="user-popup" class="user-popup hidden">
+              <span class="close-popup">&times;</span>
+              <h3>User Details</h3>
+              <p><strong>Name:</strong> John Doe</p>
+              <p><strong>Email:</strong> john.doe@example.com</p>
+              <button id="logout-button">Logout</button>
+            </div>
+          </div>
+
+    </header>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close" onclick="closeLoginModal()">&times;</span>
+        <iframe src="login.html" frameborder="0" style="width:100%; height:100%; border:none; display:block;"></iframe>
+      </div>
+    </div>
+
+    <script>
+      let loginTimeout;
+
+      function showLoginModal() {
+        const modal = document.getElementById("loginModal");
+        if (modal) {
+          modal.style.display = "block";
+        }
+      }
+
+      function closeLoginModal() {
+        const modal = document.getElementById("loginModal");
+        if (modal) {
+          modal.style.display = "none";
+        }
+        resetLoginTimeout(); // Optional: restart the timer
+      }
+
+      // Listen for message from iframe
+      window.addEventListener("message", function (event) {
+        if (event.data === "closeLoginModal") {
+          closeLoginModal();
+        }
+      });
+
+
+      function resetLoginTimeout() {
+        clearTimeout(loginTimeout);
+        loginTimeout = setTimeout(showLoginModal, 15000); // 15 seconds
+      }
+
+      // Start timeout and reset on any interaction
+      document.addEventListener("DOMContentLoaded", resetLoginTimeout);
+      ["mousemove", "keydown", "scroll", "click"].forEach(evt =>
+        document.addEventListener(evt, resetLoginTimeout)
+      );
+
+      // Close modal on outside click
+      window.addEventListener("click", function (event) {
+        const modal = document.getElementById("loginModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+
+      // Close modal on Esc key
+      document.addEventListener("keydown", function (event) {
+        const modal = document.getElementById("loginModal");
+        if (event.key === "Escape" && modal.style.display === "block") {
+          modal.style.display = "none";
+        }
+      });
+    </script>
+
+
+    <!-- Favorites Modal -->
+    <div id="favorites-modal" class="modal">
+      <div class="modal-content">
+        <h2>Your Favorite Items</h2>
+        <div id="favorites-list"></div>
+        <button class="close-modal">Close</button>
+        <button class="back-home">🏠 Back to Home</button>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const favoritesModal = document.getElementById("favorites-modal");
+        const userLogo = document.getElementById("user-logo");
+        const userPopup = document.getElementById("user-popup");
+        const closePopup = document.querySelector(".close-popup");
+        const logoutButton = document.getElementById("logout-button");
+
+        if (!userLogo || !userPopup || !logoutButton) {
+          console.error("User logo or popup is missing.");
+          return;
+        }
+
+        // ✅ Toggle User Popup on Click
+        userLogo.addEventListener("click", function (event) {
+          event.stopPropagation();
+          userPopup.classList.toggle("show");
+        });
+
+        // ✅ Close Popup When Clicking the "X" Button
+        closePopup.addEventListener("click", function () {
+          userPopup.classList.remove("show");
+        });
+
+        // ✅ Close Popup When Clicking Outside
+        // Also allow closing by clicking outside modal
+        window.addEventListener("click", function (event) {
+          if (event.target === favoritesModal) {
+            favoritesModal.style.display = "none";
+          }
+        });
+
+        // ✅ Logout Functionality - Show Alert and Redirect
+        logoutButton.addEventListener("click", function () {
+          localStorage.clear();
+          sessionStorage.clear();
+
+          setTimeout(() => {
+            alert("Logging out...");
+            window.location.href = "login.html"; // Redirects only after clicking OK
+          }, 100);
+        });
+      });
+    </script>
+
+    <script>
+      function closeUserBox() {
+        window.parent.document.getElementById('user-popup').style.display = 'none';
+      }
+
+      function logout() {
+        alert("Logging out...");
+        window.location.href = "login.html";
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const categoryButtons = document.querySelectorAll(".category-button");
+        const productCards = document.querySelectorAll(".product-card");
+        const favoriteButton = document.querySelector(".nav-item.favorites"); // Heart button in footer
+        const favoritesModal = document.getElementById("favorites-modal");
+        const favoritesList = document.getElementById("favorites-list");
+        const closeModalButton = document.querySelector(".close-modal");
+        const backHomeButton = document.querySelector(".back-home");
+
+        // Category mapping for filtering
+        const categoryMap = {
+          Beverages: ["Mocha Fusi", "Blue Plantation", "Caffe Panna", "Caffe Mocha"],
+          Snacks: ["Rosemary Rolls", "Hush Puppies"],
+          Dishes: ["Pizzaiola Rice", "Red Pepper White Bean Dip"]
+        };
+
+        // Load saved items from localStorage
+        let savedItems = JSON.parse(localStorage.getItem("savedItems")) || [];
+
+        categoryButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            categoryButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            const category = this.innerText;
+
+            productCards.forEach((card) => {
+              const title = card.querySelector(".product-title").innerText;
+
+              if (category === "All") {
+                card.style.display = "block";
+              } else if (categoryMap[category] && categoryMap[category].includes(title)) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+
+        // Add to favorites when "+" button is clicked
+        document.querySelectorAll(".add-button").forEach((button) => {
+          button.addEventListener("click", function (event) {
+            event.stopPropagation();
+            const productCard = this.closest(".product-card");
+            const title = productCard.querySelector(".product-title").innerText;
+            const image = productCard.querySelector(".product-image").src;
+            const link = productCard.getAttribute("onclick").split("'")[1]; // Get product page link
+
+            if (!savedItems.some((item) => item.title === title)) {
+              savedItems.push({ title, image, link });
+              localStorage.setItem("savedItems", JSON.stringify(savedItems));
+            }
+
+            showFavorites(); // Show modal immediately
+          });
+        });
+
+        // Show favorites modal when clicking the "❤️" button
+        favoriteButton.addEventListener("click", showFavorites);
+
+        function showFavorites() {
+          favoritesList.innerHTML = ""; // Clear previous list
+          let savedItems = JSON.parse(localStorage.getItem("savedItems")) || [];
+
+          if (savedItems.length === 0) {
+            favoritesList.innerHTML = "<p>No favorite items yet!</p>";
+          } else {
+            savedItems.forEach(item => {
+              const itemDiv = document.createElement("div");
+              itemDiv.classList.add("favorite-item");
+              itemDiv.innerHTML = `
+    <div class="favorite-content">
+      <img src="${item.image}" width="60">
+      <p class="favorite-title" onclick="window.location.href='${item.link}'">${item.title}</p>
+    </div>
+    <button class="remove-fav" onclick="removeFavorite('${item.title}')">Remove</button>
+    `;
+              favoritesList.appendChild(itemDiv);
+            });
+          }
+
+          favoritesModal.style.display = "flex";
+        }
+
+        // ✅ Close modal when clicking "Close" button
+        closeModalButton.addEventListener("click", function () {
+          favoritesModal.style.display = "none";
+        });
+
+        // ✅ Go back to home when clicking "Back to Home" button
+        backHomeButton.addEventListener("click", function () {
+          window.location.href = "home.html";
+        });
+
+        // ✅ Close modal when clicking outside the modal
+        window.addEventListener("click", function (event) {
+          if (event.target === favoritesModal) {
+            favoritesModal.style.display = "none";
+          }
+        });
+
+        // ✅ Close modal when pressing Esc key
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            favoritesModal.style.display = "none";
+          }
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get Footer Navigation Elements
+        const favoritesIcon = document.getElementById("favorites-icon");
+        const cartIcon = document.getElementById("cart-icon");
+        const notificationsIcon = document.getElementById("notifications-icon");
+
+        // ✅ Redirect to Favorites Page
+        if (favoritesIcon) {
+          favoritesIcon.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            window.location.href = "fav.html"; // Redirect
+          });
+        }
+
+        // ✅ Redirect to Cart Page (Contact Page as per your request)
+        if (cartIcon) {
+          cartIcon.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "contact.html"; // Redirect to Contact Page
+          });
+        }
+
+        // ✅ Redirect to Notifications Page
+        if (notificationsIcon) {
+          notificationsIcon.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "feedback.html"; // Redirect
+          });
+        }
+      });
+    </script>
+
+    <main class="main-content">
+      <nav class="category-nav" aria-label="Product categories">
+        <ul class="category-list">
+          <li><button class="category-button active">All</button></li>
+          <li><button class="category-button">Beverages</button></li>
+          <li><button class="category-button">Snacks</button></li>
+          <li><button class="category-button">Dishes</button></li>
+        </ul>
+      </nav>
+
+      <section class="products-section" aria-label="Products">
+        <div class="products-grid">
+
+          <article class="product-card" onclick="window.location.href='rolls.html';" style="cursor: pointer;">
+            <div class="product-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1efac384ed103fb6df80a32e0bc1303339da3ddd"
+                alt="Rosemary Rolls" class="product-image" />
+              <div class="rating-badge"><span class="rating-value">4.8</span></div>
+            </div>
+            <div class="product-content">
+              <h2 class="product-title">Rosemary Rolls</h2>
+              <p class="product-category">Roll &amp; Pastry</p>
+              <button class="add-button" aria-label="Add Hush Puppies to cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="heart-icon">
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="#FF0000" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- pizzaiola rice-->
+          <article class="product-card" onclick="window.location.href='rice.html';" style="cursor: pointer;">
+            <div class="product-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/772a88d17976636e027d623c5864363a88efc150"
+                alt="Pizzaiola Rice" class="product-image" />
+              <div class="rating-badge"><span class="rating-value">4.8</span></div>
+            </div>
+            <div class="product-content">
+              <h2 class="product-title">Pizzaiola Rice</h2>
+              <p class="product-category">Bake</p>
+              <button class="add-button" aria-label="Add Hush Puppies to cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="heart-icon">
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="#FF0000" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card" onclick="window.location.href='mocha.html';" style="cursor: pointer;">
+            <div class="product-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ad56f6d939f5e62f1793928fc6861e7a87f725c7"
+                alt="Mocha Fusi" class="product-image" />
+              <div class="rating-badge"><span class="rating-value">4.8</span></div>
+            </div>
+            <div class="product-content">
+              <h2 class="product-title">Mocha Fusi</h2>
+              <p class="product-category">Coffee</p>
+              <button class="add-button" aria-label="Add Hush Puppies to cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="heart-icon">
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="#FF0000" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+
+          <!-- Blue Plantation -->
+          <article class="product-card" onclick="window.location.href='black.html';" style="cursor: pointer;">
+            <div class="product-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7cbdb2496126d498810b5cf13a84904288b1f018"
+                alt="Blue Plantation" class="product-image" />
+              <div class="rating-badge">
+                <svg width="12" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="star-icon">
+                  <path
+                    d="M7.36495 1.75507L8.24495 3.51507C8.36495 3.76007 8.68495 3.99507 8.95495 4.04007L10.55 4.30507C11.57 4.47507 11.81 5.21507 11.075 5.94507L9.83495 7.18507C9.62495 7.39507 9.50995 7.80007 9.57495 8.09007L9.92995 9.62507C10.21 10.8401 9.56495 11.3101 8.48995 10.6751L6.99495 9.79007C6.72495 9.63007 6.27995 9.63007 6.00495 9.79007L4.50995 10.6751C3.43995 11.3101 2.78995 10.8351 3.06995 9.62507L3.42495 8.09007C3.48995 7.80007 3.37495 7.39507 3.16495 7.18507L1.92495 5.94507C1.19495 5.21507 1.42995 4.47507 2.44995 4.30507L4.04495 4.04007C4.30995 3.99507 4.62995 3.76007 4.74995 3.51507L5.62995 1.75507C6.10995 0.800068 6.88995 0.800068 7.36495 1.75507Z"
+                    fill="#FBBE21"></path>
+                </svg>
+                <span class="rating-value">4.8</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <div class="product-info">
+                <h2 class="product-title">Blue Plantation</h2>
+                <p class="product-category">Martini</p>
+              </div>
+              <div class="product-action">
+                <button class="add-button" aria-label="Add Blue Plantation to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="heart-icon">
+                    <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                      fill="#FF0000" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Red Pepper White Bean Dip -->
+          <article class="product-card" onclick="window.location.href='red.html';" style="cursor: pointer;">
+            <div class="product-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/285acc2bfc2e795a558ae9fd09698a82bd972095"
+                alt="Red Pepper White Bean Dip" class="product-image" />
+              <div class="rating-badge">
+                <svg width="12" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="star-icon">
+                  <path
+                    d="M7.36495 1.75507L8.24495 3.51507C8.36495 3.76007 8.68495 3.99507 8.95495 4.04007L10.55 4.30507C11.57 4.47507 11.81 5.21507 11.075 5.94507L9.83495 7.18507C9.62495 7.39507 9.50995 7.80007 9.57495 8.09007L9.92995 9.62507C10.21 10.8401 9.56495 11.3101 8.48995 10.6751L6.99495 9.79007C6.72495 9.63007 6.27995 9.63007 6.00495 9.79007L4.50995 10.6751C3.43995 11.3101 2.78995 10.8351 3.06995 9.62507L3.42495 8.09007C3.48995 7.80007 3.37495 7.39507 3.16495 7.18507L1.92495 5.94507C1.19495 5.21507 1.42995 4.47507 2.44995 4.30507L4.04495 4.04007C4.30995 3.99507 4.62995 3.76007 4.74995 3.51507L5.62995 1.75507C6.10995 0.800068 6.88995 0.800068 7.36495 1.75507Z"
+                    fill="#FBBE21"></path>
+                </svg>
+                <span class="rating-value">4.2</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <div class="product-info">
+                <h2 class="product-title">Red Pepper White Bean Dip</h2>
+                <p class="product-category">Spicy snack</p>
+              </div>
+              <div class="product-action">
+                <button class="add-button" aria-label="Add Red Pepper White Bean Dip to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="heart-icon">
+                    <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                      fill="#FF0000" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Caffe Panna -->
+          <article class="product-card" onclick="window.location.href='caffe.html';" style="cursor: pointer;">
+            <div class="product-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/991d750d0d0540351de55c9110fb6c25d216bd6f"
+                alt="Caffe Panna" class="product-image" />
+              <div class="rating-badge">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="star-icon">
+                  <path
+                    d="M6.86495 1.75507L7.74495 3.51507C7.86495 3.76007 8.18495 3.99507 8.45495 4.04007L10.05 4.30507C11.07 4.47507 11.31 5.21507 10.575 5.94507L9.33495 7.18507C9.12495 7.39507 9.00995 7.80007 9.07495 8.09007L9.42995 9.62507C9.70995 10.8401 9.06495 11.3101 7.98995 10.6751L6.49495 9.79007C6.22495 9.63007 5.77995 9.63007 5.50495 9.79007L4.00995 10.6751C2.93995 11.3101 2.28995 10.8351 2.56995 9.62507L2.92495 8.09007C2.98995 7.80007 2.87495 7.39507 2.66495 7.18507L1.42495 5.94507C0.694954 5.21507 0.929955 4.47507 1.94995 4.30507L3.54495 4.04007C3.80995 3.99507 4.12995 3.76007 4.24995 3.51507L5.12995 1.75507C5.60995 0.800068 6.38995 0.800068 6.86495 1.75507Z"
+                    fill="#FBBE21"></path>
+                </svg>
+                <span class="rating-value">4.8</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <div class="product-info">
+                <h2 class="product-title">Caffe Panna</h2>
+                <p class="product-category">Ice/Hot</p>
+              </div>
+              <div class="product-action">
+                <button class="add-button" aria-label="Add Caffe Panna to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="heart-icon">
+                    <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                      fill="#FF0000" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Caffe Mocha -->
+          <article class="product-card">
+            <div class="product-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/89d6e249ecc3aeb74efd8b8d6597e3495c958f2e"
+                alt="Caffe Mocha" class="product-image" />
+              <div class="rating-badge">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="star-icon">
+                  <path
+                    d="M6.86495 1.75507L7.74495 3.51507C7.86495 3.76007 8.18495 3.99507 8.45495 4.04007L10.05 4.30507C11.07 4.47507 11.31 5.21507 10.575 5.94507L9.33495 7.18507C9.12495 7.39507 9.00995 7.80007 9.07495 8.09007L9.42995 9.62507C9.70995 10.8401 9.06495 11.3101 7.98995 10.6751L6.49495 9.79007C6.22495 9.63007 5.77995 9.63007 5.50495 9.79007L4.00995 10.6751C2.93995 11.3101 2.28995 10.8351 2.56995 9.62507L2.92495 8.09007C2.98995 7.80007 2.87495 7.39507 2.66495 7.18507L1.42495 5.94507C0.694954 5.21507 0.929955 4.47507 1.94995 4.30507L3.54495 4.04007C3.80995 3.99507 4.12995 3.76007 4.24995 3.51507L5.12995 1.75507C5.60995 0.800068 6.38995 0.800068 6.86495 1.75507Z"
+                    fill="#FBBE21"></path>
+                </svg>
+                <span class="rating-value">4.8</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <div class="product-info">
+                <h2 class="product-title">Caffe Mocha</h2>
+                <p class="product-category">Coffee</p>
+              </div>
+              <div class="product-action">
+                <button class="add-button" aria-label="Add Caffe Mocha to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="heart-icon">
+                    <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                      fill="#FF0000" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hush Puppies -->
+          <article class="product-card">
+            <div class="product-image-wrapper">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/78e5d990b343f2a91e1748f4074b129069e37b7f"
+                alt="Hush Puppies" class="product-image" />
+              <div class="rating-badge">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="star-icon">
+                  <path
+                    d="M6.86495 1.75507L7.74495 3.51507C7.86495 3.76007 8.18495 3.99507 8.45495 4.04007L10.05 4.30507C11.07 4.47507 11.31 5.21507 10.575 5.94507L9.33495 7.18507C9.12495 7.39507 9.00995 7.80007 9.07495 8.09007L9.42995 9.62507C9.70995 10.8401 9.06495 11.3101 7.98995 10.6751L6.49495 9.79007C6.22495 9.63007 5.77995 9.63007 5.50495 9.79007L4.00995 10.6751C2.93995 11.3101 2.28995 10.8351 2.56995 9.62507L2.92495 8.09007C2.98995 7.80007 2.87495 7.39507 2.66495 7.18507L1.42495 5.94507C0.694954 5.21507 0.929955 4.47507 1.94995 4.30507L3.54495 4.04007C3.80995 3.99507 4.12995 3.76007 4.24995 3.51507L5.12995 1.75507C5.60995 0.800068 6.38995 0.800068 6.86495 1.75507Z"
+                    fill="#FBBE21"></path>
+                </svg>
+                <span class="rating-value">4.8</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <div class="product-info">
+                <h2 class="product-title">Hush Puppies</h2>
+                <p class="product-category">Snacks</p>
+              </div>
+              <div class="product-action">
+                <button class="add-button" aria-label="Add Hush Puppies to cart">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="heart-icon">
+                    <path
+                      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                      fill="#FF0000" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <nav class="bottom-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li class="nav-item active">
+            <a href="home.html" class="nav-link" aria-label="Home">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path
+                  d="M9.90587 22.514V19.1916C9.90586 18.3497 10.5905 17.6657 11.4385 17.6604H14.5522C15.4039 17.6604 16.0945 18.3459 16.0945 19.1916V22.5044C16.0944 23.2346 16.6879 23.8281 17.4233 23.8334H19.5476C20.5398 23.8359 21.4921 23.4464 22.1946 22.7508C22.897 22.0552 23.2918 21.1107 23.2918 20.1257V10.6881C23.2918 9.89242 22.9366 9.13769 22.3218 8.62721L15.1051 2.89721C13.8436 1.89496 12.0418 1.92734 10.8177 2.97425L3.75609 8.62721C3.1123 9.12264 2.72751 9.87961 2.7085 10.6881V20.1161C2.7085 22.1691 4.38483 23.8334 6.45268 23.8334H8.52848C8.8826 23.8359 9.22311 23.6981 9.47443 23.4504C9.72574 23.2027 9.86708 22.8656 9.86707 22.514H9.90587Z"
+                  fill="#C67C4E"></path>
+              </svg>
+              <span class="active-indicator"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="fav.html" class="nav-link" aria-label="Favorites">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M6.37294 20.205C8.7096 27.475 17.9413 33.3533 20.3946 34.8083C22.8563 33.3383 32.1546 27.395 34.4163 20.2116C35.9013 15.5683 34.5229 9.68662 29.0463 7.92162C26.3929 7.06995 23.2979 7.58829 21.1613 9.24162C20.7146 9.58495 20.0946 9.59162 19.6446 9.25162C17.3813 7.54995 14.4246 7.05162 11.7296 7.92162C6.26127 9.68495 4.88794 15.5666 6.37294 20.205ZM20.3963 37.5016C20.1896 37.5016 19.9846 37.4516 19.7979 37.35C19.2763 37.065 6.98794 30.2916 3.99294 20.9683C3.99127 20.9683 3.99127 20.9666 3.99127 20.9666C2.11127 15.0966 4.2046 7.71995 10.9629 5.54162C14.1363 4.51495 17.5946 4.96662 20.3913 6.73162C23.1013 5.01829 26.7013 4.54495 29.8113 5.54162C36.5763 7.72329 38.6763 15.0983 36.7979 20.9666C33.8996 30.1833 21.5213 37.0583 20.9963 37.3466C20.8096 37.45 20.6029 37.5016 20.3963 37.5016Z"
+                  fill="#C62828"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M30.2565 17.7081C29.6115 17.7081 29.0648 17.2131 29.0115 16.5598C28.9015 15.1898 27.9848 14.0331 26.6798 13.6115C26.0215 13.3981 25.6615 12.6931 25.8731 12.0381C26.0881 11.3815 26.7865 11.0248 27.4465 11.2315C29.7181 11.9665 31.3098 13.9781 31.5048 16.3565C31.5598 17.0448 31.0481 17.6481 30.3598 17.7031C30.3248 17.7065 30.2915 17.7081 30.2565 17.7081Z"
+                  fill="#C62828"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link" aria-label="Cart">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M11.1927 13.4001C10.4577 13.4001 8.00105 13.6968 7.29605 17.5035L6.00938 27.5035C5.59105 30.3085 5.91438 32.3385 6.97271 33.5668C8.01771 34.7801 9.88771 35.3701 12.6877 35.3701H26.601C28.3477 35.3701 30.7327 35.0218 32.1727 33.3585C33.316 32.0401 33.7094 30.0768 33.3427 27.5218L32.0444 17.4351C31.491 14.9501 30.031 13.4001 28.1577 13.4001H11.1927ZM26.601 37.8701H12.6877C9.11605 37.8701 6.62771 36.9951 5.07938 35.1968C3.52438 33.3935 3.00438 30.6885 3.53438 27.1585L4.82771 17.1151C5.67771 12.5101 8.78605 10.9001 11.1927 10.9001H28.1577C30.5744 10.9001 33.5127 12.5051 34.5044 17.0068L35.8194 27.1851C36.291 30.4701 35.701 33.1051 34.0627 34.9951C32.4327 36.8751 29.8527 37.8701 26.601 37.8701Z"
+                  fill="#EB8F00"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M26.8296 13.0337C26.1396 13.0337 25.5796 12.4737 25.5796 11.7837C25.5796 8.50207 22.9096 5.83374 19.6296 5.83374H19.6046C18.0363 5.83374 16.5079 6.46541 15.3996 7.56707C14.2863 8.67541 13.6479 10.2137 13.6479 11.7837C13.6479 12.4737 13.0879 13.0337 12.3979 13.0337C11.7079 13.0337 11.1479 12.4737 11.1479 11.7837C11.1479 9.55207 12.0546 7.37041 13.6346 5.79541C15.2096 4.23041 17.3813 3.33374 19.5996 3.33374H19.6346C24.2896 3.33374 28.0796 7.12374 28.0796 11.7837C28.0796 12.4737 27.5196 13.0337 26.8296 13.0337Z"
+                  fill="#422B0D"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M24.5723 20.5403H24.4956C23.8056 20.5403 23.2456 19.9803 23.2456 19.2903C23.2456 18.6003 23.8056 18.0403 24.4956 18.0403C25.1856 18.0403 25.7839 18.6003 25.7839 19.2903C25.7839 19.9803 25.2623 20.5403 24.5723 20.5403Z"
+                  fill="#422B0D"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M14.8538 20.5403H14.7788C14.0888 20.5403 13.5288 19.9803 13.5288 19.2903C13.5288 18.6003 14.0888 18.0403 14.7788 18.0403C15.4688 18.0403 16.0671 18.6003 16.0671 19.2903C16.0671 19.9803 15.5438 20.5403 14.8538 20.5403Z"
+                  fill="#422B0D"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="feedback.html" class="nav-link" aria-label="Notifications">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M20.4117 4.16675C14.5867 4.16675 10.5267 8.73008 10.5267 12.8251C10.5267 16.2901 9.56502 17.8917 8.71502 19.3051C8.03336 20.4401 7.49502 21.3367 7.49502 23.2851C7.77336 26.4284 9.84836 28.0801 20.4117 28.0801C30.9167 28.0801 33.0567 26.3551 33.3334 23.1767C33.3284 21.3367 32.79 20.4401 32.1084 19.3051C31.2584 17.8917 30.2967 16.2901 30.2967 12.8251C30.2967 8.73008 26.2367 4.16675 20.4117 4.16675ZM20.4117 30.5801C12.6184 30.5801 5.57502 30.0301 5.00002 23.3917C4.99502 20.6451 5.83336 19.2484 6.57336 18.0184C7.32169 16.7717 8.02669 15.5967 8.02669 12.8251C8.02669 7.43675 13.0034 1.66675 20.4117 1.66675C27.82 1.66675 32.7967 7.43675 32.7967 12.8251C32.7967 15.5967 33.5017 16.7717 34.25 18.0184C34.99 19.2484 35.8284 20.6451 35.8284 23.2851C35.2467 30.0301 28.205 30.5801 20.4117 30.5801Z"
+                  fill="black"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M20.3302 37.5H20.3269C18.4585 37.4983 16.6902 36.675 15.3485 35.18C14.8869 34.6683 14.9285 33.8767 15.4419 33.4167C15.9552 32.9533 16.7452 32.995 17.2069 33.51C18.0702 34.4717 19.1785 35 20.3285 35H20.3302C21.4852 35 22.5985 34.4717 23.4635 33.5083C23.9269 32.9967 24.7169 32.955 25.2285 33.4167C25.7419 33.8783 25.7835 34.67 25.3219 35.1817C23.9752 36.6767 22.2035 37.5 20.3302 37.5Z"
+                  fill="black"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="footer-handle">
+        <div class="handle-bar"></div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>

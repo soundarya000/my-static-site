@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+  <title>Login and Signup Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+   html,body{
+      margin:0;
+      padding:0;
+      overflow: hidden;
+      height:100%;
+   }
+  </style>
+</head>
+<body>
+   <div class="container">
+      <div class="form-container">
+         <div class="form-inner">
+         <div class="wrapper">
+            <div class="title-text">
+               <div class="title login">Login Form</div>
+               <div class="title signup">Signup Form</div>
+            </div>
+            <div class="form-container">
+               <div class="slide-controls">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+               <label for="login" class="slide login">Login</label>
+               <label for="signup" class="slide signup">Signup</label>
+               <div class="slider-tab"></div>
+               </div>
+               <div class="form-inner">   
+                  <form action="#" class="login" id="login-form">
+                     <div class="field">
+                        <input type="text" placeholder="Email Address" required>
+                     </div>
+                     <div class="field">
+                        <input type="password" placeholder="Password" required>
+                     </div>
+                     <div class="pass-link"><a href="#">Forgot password?</a></div>
+                     <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Login">
+                     </div>
+                     <div class="signup-link">Not a member? <a href="">Signup now</a></div>
+                  </form>
+                  <form action="#" class="signup">
+                     <div class="field">
+                        <input type="text" placeholder="Email Address" required>
+                     </div>
+                     <div class="field">
+                        <input type="password" placeholder="Password" required>
+                     </div>
+                     <div class="field">
+                        <input type="password" placeholder="Confirm password" required>
+                     </div>
+                     <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Signup">
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         </div>      
+      </div>
+   
+   <script src="login.js"></script> 
+</body>
+</html>

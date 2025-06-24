@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .user-box {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: red;
+            font-weight: bold;
+        }
+
+        .close-button:hover {
+            color: darkred;
+        }
+
+        button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-box">
+        <span class="close-button" onclick="closeUserBox()">✖</span>
+        <h2>User Details</h2>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Email:</strong> john.doe@example.com</p>
+        <button onclick="logout()" id="logout-button">Logout</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const userLogo = document.getElementById("user-logo");
+          const userPopup = document.getElementById("user-popup");
+          const logoutButton = document.getElementById("logout-button");
+      
+          if (!userLogo || !userPopup || !logoutButton) {
+            console.error("User logo or popup is missing.");
+            return;
+          }
+      
+          // Toggle User Popup on Click
+          userLogo.addEventListener("click", function (event) {
+            event.stopPropagation();
+            userPopup.classList.toggle("show");
+          });
+      
+          // Close Popup When Clicking Outside
+          document.addEventListener("click", function (event) {
+            if (!userPopup.contains(event.target) && event.target !== userLogo) {
+              userPopup.classList.remove("show");
+            }
+          });
+      
+          // ✅ Logout Functionality - Wait for OK Before Redirecting
+          logoutButton.addEventListener("click", function () {
+            localStorage.clear(); // Clear saved data
+            sessionStorage.clear(); 
+      
+            // Show alert and wait for "OK" before redirecting
+            setTimeout(() => {
+              alert("Logging out...");
+              window.location.href = "login.html"; // Redirects only after clicking OK
+            }, 100);
+          });
+        });
+      </script>
+      
+
+    <script>
+        function closeUserBox() {
+            window.parent.document.getElementById('user-popup').style.display = 'none';
+        }
+
+        function logout() {
+            alert("Logging out...");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>

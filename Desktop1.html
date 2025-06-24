@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeless Taste Treasure</title>
+    <style>
+        body {
+            background-color: #030303;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+        }
+        .text-container{
+            text-align: center;
+            width: 100%;
+            opacity: 0.5;
+            background-color: black;
+        }
+        .coffee-image {
+            width: 100%;
+            height: 80%;
+            max-width: 600px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        .title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .description {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .get-started {
+            background-color: #ff7f50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .get-started:hover {
+            background-color: #ff6347;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="coffee_cup.png" alt="Coffee Cup" class="coffee-image">
+        <div class="text-container">
+            <div class="title">Timeless Taste Treasure</div>
+            <div class="description">Experience the rich and aromatic flavors of our premium coffee blend.</div>
+            <button class="get-started" onclick="redirectToNextPage()">Get Started</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectToNextPage() {
+            window.location.href = "home.html";
+        }
+    </script>
+</body>
+</html>

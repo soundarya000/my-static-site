@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="styles1.css" />
+    <link rel="stylesheet" href="product-grid.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        .favorite-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 8px;
+    margin: 10px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Reduce width */
+    max-width: 380px; /* Limit maximum width */
+    font-size: 14px; /* Make text smaller */
+}
+
+.favorite-item img {
+    width: 50px;  /* Make images smaller */
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.favorite-item p {
+    flex-grow: 1;
+    margin: 0 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.favorite-item button {
+    background: #c67c4e;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.favorite-item button:hover {
+    background: #a15f3c;
+}
+
+.back-home-btn {
+    display: block;  /* Ensures it's visible */
+    width: 100%;  /* Full width */
+    max-width: 200px;  /* Set a max width */
+    padding: 12px 20px;
+    margin: 20px auto;  /* Centers the button */
+    background-color: #C67C4E;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.back-home-btn:hover {
+    background-color: #a15f3c;
+}
+
+        .search-section {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+        .search-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds spacing between filter and search */
+}
+        /* Footer styles */
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 56px;
+            position: fixed;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 24px;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+        }
+
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .footer-item:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-item-active {
+            position: relative;
+        }
+
+        .active-indicator {
+            width: 10px;
+            height: 5px;
+            background-color: #C67C4E;
+            border-radius: 18px;
+            margin-top: 6px;
+        }
+        /* Modal Styling */
+.modal {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Make modal visible when active */
+.modal.show {
+  display: flex;
+}
+
+/* Modal Content Box */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="location-container">
+                        <p class="location-label">Location</p>
+                        <div class="location-dropdown">
+                            <p class="location-value">Bengaluru, Karnataka</p>
+                            <button class="dropdown-button" aria-label="Change location">▼</button>
+                        </div>
+                    </div>
+                    <div class="logo-container">
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/fccc7b837d5230ced5c7987e8c02930e76f8abb0"
+                            alt="Logo" class="logo-image" />
+                    </div>
+                </div>
+            </div>
+            <div class="search-section">
+                <div class="search-bar-container">
+                    <button class="filter-button" aria-label="Filter options">
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M9.33262 15.494H4.08179C3.73679 15.494 3.45679 15.214 3.45679 14.869C3.45679 14.524 3.73679 14.244 4.08179 14.244H9.33262C9.67762 14.244 9.95762 14.524 9.95762 14.869C9.95762 15.214 9.67762 15.494 9.33262 15.494Z"
+                                fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M16.925 7.41699H11.675C11.33 7.41699 11.05 7.13699 11.05 6.79199C11.05 6.44699 11.33 6.16699 11.675 6.16699H16.925C17.27 6.16699 17.55 6.44699 17.55 6.79199C17.55 7.13699 17.27 7.41699 16.925 7.41699Z"
+                                fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M6.02654 5.41663C5.28571 5.41663 4.68237 6.01329 4.68237 6.74746C4.68237 7.48079 5.28571 8.07663 6.02654 8.07663C6.76821 8.07663 7.37071 7.48079 7.37071 6.74746C7.37071 6.01329 6.76821 5.41663 6.02654 5.41663ZM6.02654 9.32663C4.59654 9.32663 3.43237 8.16996 3.43237 6.74746C3.43237 5.32496 4.59654 4.16663 6.02654 4.16663C7.45737 4.16663 8.62071 5.32496 8.62071 6.74746C8.62071 8.16996 7.45737 9.32663 6.02654 9.32663Z"
+                                fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M15.4224 13.5067C14.6807 13.5067 14.0774 14.1034 14.0774 14.8367C14.0774 15.5709 14.6807 16.1667 15.4224 16.1667C16.1632 16.1667 16.7657 15.5709 16.7657 14.8367C16.7657 14.1034 16.1632 13.5067 15.4224 13.5067ZM15.4224 17.4167C13.9916 17.4167 12.8274 16.2592 12.8274 14.8367C12.8274 13.4142 13.9916 12.2567 15.4224 12.2567C16.8524 12.2567 18.0157 13.4142 18.0157 14.8367C18.0157 16.2592 16.8524 17.4167 15.4224 17.4167Z"
+                                fill="white"></path>
+                        </svg>
+                    </button>
+                    <div class="search-input-wrapper">
+                        <button class="search-icon" aria-label="Search">
+                            <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M10.6478 2.91663C6.86198 2.91663 3.78198 5.99579 3.78198 9.78163C3.78198 13.5675 6.86198 16.6475 10.6478 16.6475C14.4328 16.6475 17.5128 13.5675 17.5128 9.78163C17.5128 5.99579 14.4328 2.91663 10.6478 2.91663ZM10.6478 17.8975C6.17282 17.8975 2.53198 14.2566 2.53198 9.78163C2.53198 5.30663 6.17282 1.66663 10.6478 1.66663C15.1228 1.66663 18.7628 5.30663 18.7628 9.78163C18.7628 14.2566 15.1228 17.8975 10.6478 17.8975Z"
+                                    fill="#2B2B2B"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.7941 18.9347C18.6349 18.9347 18.4749 18.8739 18.3524 18.7522L15.4157 15.8239C15.1716 15.5797 15.1707 15.1839 15.4149 14.9397C15.6582 14.6939 16.0541 14.6955 16.2991 14.938L19.2357 17.8672C19.4799 18.1114 19.4807 18.5064 19.2366 18.7505C19.1149 18.8739 18.9541 18.9347 18.7941 18.9347Z"
+                                    fill="#2B2B2B"></path>
+                            </svg>
+                        </button>
+                        <input type="text" placeholder="Search coffee" class="search-input"
+                            aria-label="Search for coffee" />
+                    </div>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/be0fb604e4ef3e5acbbf0bdcef1392e456613b37"
+                        alt="Account" class="account-image" />
+
+        </header>
+        <div class="container">
+            <h1>Your Favorite Items</h1>
+            <div id="favorites-list"></div>
+            <button class="back-home-btn" onclick="window.location.href='home.html'">Back to Home</button>
+
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const favoritesList = document.getElementById("favorites-list");
+                const savedItems = JSON.parse(localStorage.getItem("savedItems")) || [];
+
+                if (savedItems.length === 0) {
+                    favoritesList.innerHTML = "<p>No favorite items yet!</p>";
+                } else {
+                    savedItems.forEach(item => {
+                        const itemDiv = document.createElement("div");
+                        itemDiv.classList.add("favorite-item");
+                        itemDiv.innerHTML = `
+            <img src="${item.image}" width="100">
+            <p>${item.title}</p>
+            <button onclick="removeFavorite('${item.title}')">Remove</button>
+          `;
+                        favoritesList.appendChild(itemDiv);
+                    });
+                }
+            });
+
+            function removeFavorite(title) {
+                let savedItems = JSON.parse(localStorage.getItem("savedItems")) || [];
+                savedItems = savedItems.filter(item => item.title !== title);
+                localStorage.setItem("savedItems", JSON.stringify(savedItems));
+                location.reload();
+            }
+        </script>
+        <footer class="footer">
+            <div class="footer-item footer-item-active" onclick="window.location.href='home.html';"
+                style="cursor: pointer;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M9.14373 20.7821V17.7152C9.14372 16.9381 9.77567 16.3067 10.5584 16.3018H13.4326C14.2189 16.3018 14.8563 16.9346 14.8563 17.7152V20.7732C14.8562 21.4473 15.404 21.9951 16.0829 22H18.0438C18.9596 22.0023 19.8388 21.6428 20.4872 21.0007C21.1356 20.3586 21.5 19.4868 21.5 18.5775V9.86585C21.5 9.13139 21.1721 8.43471 20.6046 7.9635L13.943 2.67427C12.7785 1.74912 11.1154 1.77901 9.98539 2.74538L3.46701 7.9635C2.87274 8.42082 2.51755 9.11956 2.5 9.86585V18.5686C2.5 20.4637 4.04738 22 5.95617 22H7.87229C8.19917 22.0023 8.51349 21.8751 8.74547 21.6464C8.97746 21.4178 9.10793 21.1067 9.10792 20.7821H9.14373Z"
+                        fill="#C67C4E"></path>
+                </svg>
+                <div class="active-indicator"></div>
+            </div>
+            <div class="footer-item footer-item-active" onclick="window.location.href='fav.html';"
+                style="cursor: pointer;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_2_176" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="2" y="3" width="21"
+                        height="20">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2 3H22.4725V22.501H2V3Z" fill="white"></path>
+                    </mask>
+                    <g mask="url(#mask0_2_176)">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3.82371 12.1231C5.22571 16.4851 10.7647 20.0121 12.2367 20.8851C13.7137 20.0031 19.2927 16.4371 20.6497 12.1271C21.5407 9.34112 20.7137 5.81212 17.4277 4.75312C15.8357 4.24212 13.9787 4.55312 12.6967 5.54512C12.4287 5.75112 12.0567 5.75512 11.7867 5.55112C10.4287 4.53012 8.65471 4.23112 7.03771 4.75312C3.75671 5.81112 2.93271 9.34012 3.82371 12.1231ZM12.2377 22.5011C12.1137 22.5011 11.9907 22.4711 11.8787 22.4101C11.5657 22.2391 4.19271 18.1751 2.39571 12.5811C2.39471 12.5811 2.39471 12.5801 2.39471 12.5801C1.26671 9.05812 2.52271 4.63212 6.57771 3.32512C8.48171 2.70912 10.5567 2.98012 12.2347 4.03912C13.8607 3.01112 16.0207 2.72712 17.8867 3.32512C21.9457 4.63412 23.2057 9.05912 22.0787 12.5801C20.3397 18.1101 12.9127 22.2351 12.5977 22.4081C12.4857 22.4701 12.3617 22.5011 12.2377 22.5011Z"
+                            fill="#C62828"></path>
+                    </g>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M18.1537 10.6248C17.7667 10.6248 17.4387 10.3278 17.4067 9.93578C17.3407 9.11378 16.7907 8.41978 16.0077 8.16678C15.6127 8.03878 15.3967 7.61578 15.5237 7.22278C15.6527 6.82878 16.0717 6.61478 16.4677 6.73878C17.8307 7.17978 18.7857 8.38678 18.9027 9.81378C18.9357 10.2268 18.6287 10.5888 18.2157 10.6218C18.1947 10.6238 18.1747 10.6248 18.1537 10.6248Z"
+                        fill="#C62828"></path>
+                </svg>
+            </div>
+            <div class="footer-item footer-item-active" onclick="window.location.href='contact.html';"
+                style="cursor: pointer;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_2_177" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="2" y="6" width="20"
+                        height="17">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2 6.54053H21.5859V22.7221H2V6.54053Z"
+                            fill="white"></path>
+                    </mask>
+                    <g mask="url(#mask0_2_177)">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M6.71553 8.04053C6.27453 8.04053 4.80053 8.21853 4.37753 10.5025L3.60553 16.5025C3.35453 18.1855 3.54853 19.4035 4.18353 20.1405C4.81053 20.8685 5.93253 21.2225 7.61253 21.2225H15.9605C17.0085 21.2225 18.4395 21.0135 19.3035 20.0155C19.9895 19.2245 20.2255 18.0465 20.0055 16.5135L19.2265 10.4615C18.8945 8.97053 18.0185 8.04053 16.8945 8.04053H6.71553ZM15.9605 22.7225H7.61253C5.46953 22.7225 3.97653 22.1975 3.04753 21.1185C2.11453 20.0365 1.80253 18.4135 2.12053 16.2955L2.89653 10.2695C3.40653 7.50653 5.27153 6.54053 6.71553 6.54053H16.8945C18.3445 6.54053 20.1075 7.50353 20.7025 10.2045L21.4915 16.3115C21.7745 18.2825 21.4205 19.8635 20.4375 20.9975C19.4595 22.1255 17.9115 22.7225 15.9605 22.7225Z"
+                            fill="#EB8F00"></path>
+                    </g>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16.0977 7.82049C15.6837 7.82049 15.3477 7.48449 15.3477 7.07049C15.3477 5.10149 13.7457 3.50049 11.7777 3.50049H11.7627C10.8217 3.50049 9.90472 3.87949 9.23972 4.54049C8.57172 5.20549 8.18872 6.12849 8.18872 7.07049C8.18872 7.48449 7.85272 7.82049 7.43872 7.82049C7.02472 7.82049 6.68872 7.48449 6.68872 7.07049C6.68872 5.73149 7.23272 4.42249 8.18072 3.47749C9.12572 2.53849 10.4287 2.00049 11.7597 2.00049H11.7807C14.5737 2.00049 16.8477 4.27449 16.8477 7.07049C16.8477 7.48449 16.5117 7.82049 16.0977 7.82049Z"
+                        fill="#422B0D"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M14.7433 12.3242H14.6973C14.2833 12.3242 13.9473 11.9882 13.9473 11.5742C13.9473 11.1602 14.2833 10.8242 14.6973 10.8242C15.1113 10.8242 15.4703 11.1602 15.4703 11.5742C15.4703 11.9882 15.1573 12.3242 14.7433 12.3242Z"
+                        fill="#422B0D"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8.91219 12.3242H8.86719C8.45319 12.3242 8.11719 11.9882 8.11719 11.5742C8.11719 11.1602 8.45319 10.8242 8.86719 10.8242C9.28119 10.8242 9.64019 11.1602 9.64019 11.5742C9.64019 11.9882 9.32619 12.3242 8.91219 12.3242Z"
+                        fill="#422B0D"></path>
+                </svg>
+            </div>
+            <div class="footer-item footer-item-active" onclick="window.location.href='feedback.html';"
+                style="cursor: pointer;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_2_178" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="3" y="1" width="19"
+                        height="18">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3 1H21.4969V18.348H3V1Z" fill="white"></path>
+                    </mask>
+                    <g mask="url(#mask0_2_178)">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12.247 2.5C8.75201 2.5 6.31601 5.238 6.31601 7.695C6.31601 9.774 5.73901 10.735 5.22901 11.583C4.82001 12.264 4.49701 12.802 4.49701 13.971C4.66401 15.857 5.90901 16.848 12.247 16.848C18.55 16.848 19.834 15.813 20 13.906C19.997 12.802 19.674 12.264 19.265 11.583C18.755 10.735 18.178 9.774 18.178 7.695C18.178 5.238 15.742 2.5 12.247 2.5ZM12.247 18.348C7.57101 18.348 3.34501 18.018 3.00001 14.035C2.99701 12.387 3.50001 11.549 3.94401 10.811C4.39301 10.063 4.81601 9.358 4.81601 7.695C4.81601 4.462 7.80201 1 12.247 1C16.692 1 19.678 4.462 19.678 7.695C19.678 9.358 20.101 10.063 20.55 10.811C20.994 11.549 21.497 12.387 21.497 13.971C21.148 18.018 16.923 18.348 12.247 18.348Z"
+                            fill="black"></path>
+                    </g>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12.1983 22.5001H12.1963C11.0753 22.4991 10.0143 22.0051 9.20927 21.1081C8.93227 20.8011 8.95727 20.3261 9.26527 20.0501C9.57327 19.7721 10.0473 19.7971 10.3243 20.1061C10.8423 20.6831 11.5073 21.0001 12.1973 21.0001H12.1983C12.8913 21.0001 13.5593 20.6831 14.0783 20.1051C14.3563 19.7981 14.8303 19.7731 15.1373 20.0501C15.4453 20.3271 15.4703 20.8021 15.1933 21.1091C14.3853 22.0061 13.3223 22.5001 12.1983 22.5001Z"
+                        fill="black"></path>
+                </svg>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MochaRecipe</title>
+  <meta name="description" content="Delicious Rosemary Rolls Recipe" />
+  <link rel="stylesheet" href="mocha.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="location-info">
+        <div class="location-label">Location</div>
+        <div class="location-city">
+          <span>Bengaluru, Karnataka</span>
+          <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M2.60739 5.18869C2.76271 5.03337 3.00576 5.01925 3.17704 5.14633L3.22611 5.18869L7.00008 8.96246L10.7741 5.18869C10.9294 5.03337 11.1724 5.01925 11.3437 5.14633L11.3928 5.18869C11.5481 5.34401 11.5622 5.58706 11.4351 5.75834L11.3928 5.80741L7.30944 9.89074C7.15412 10.0461 6.91106 10.0602 6.73979 9.9331L6.69072 9.89074L2.60739 5.80741C2.43653 5.63655 2.43653 5.35954 2.60739 5.18869Z"
+              fill="#D8D8D8"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="search-container">
+        <button class="filter-button">
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M9.03501 15.4939H3.78418C3.43918 15.4939 3.15918 15.2139 3.15918 14.8689C3.15918 14.5239 3.43918 14.2439 3.78418 14.2439H9.03501C9.38001 14.2439 9.66001 14.5239 9.66001 14.8689C9.66001 15.2139 9.38001 15.4939 9.03501 15.4939Z"
+              fill="white"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M16.6274 7.41699H11.3774C11.0324 7.41699 10.7524 7.13699 10.7524 6.79199C10.7524 6.44699 11.0324 6.16699 11.3774 6.16699H16.6274C16.9724 6.16699 17.2524 6.44699 17.2524 6.79199C17.2524 7.13699 16.9724 7.41699 16.6274 7.41699Z"
+              fill="white"></path>
+            <mask id="mask0_2_152" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="3" y="4" width="6"
+              height="6">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.13501 4.16699H8.32318V9.32666H3.13501V4.16699Z"
+                fill="white"></path>
+            </mask>
+            <g mask="url(#mask0_2_152)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M5.72893 5.41675C4.9881 5.41675 4.38477 6.01341 4.38477 6.74758C4.38477 7.48092 4.9881 8.07675 5.72893 8.07675C6.4706 8.07675 7.0731 7.48092 7.0731 6.74758C7.0731 6.01341 6.4706 5.41675 5.72893 5.41675ZM5.72893 9.32675C4.29893 9.32675 3.13477 8.17008 3.13477 6.74758C3.13477 5.32508 4.29893 4.16675 5.72893 4.16675C7.15977 4.16675 8.3231 5.32508 8.3231 6.74758C8.3231 8.17008 7.15977 9.32675 5.72893 9.32675Z"
+                fill="white"></path>
+            </g>
+            <mask id="mask1_2_152" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="12" y="12" width="6"
+              height="6">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7739 12.0833H17.9621V17.2429H12.7739V12.0833Z"
+                fill="white"></path>
+            </mask>
+            <g mask="url(#mask1_2_152)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M15.1248 13.5066C14.3831 13.5066 13.7798 14.1033 13.7798 14.8366C13.7798 15.5708 14.3831 16.1666 15.1248 16.1666C15.8656 16.1666 16.4681 15.5708 16.4681 14.8366C16.4681 14.1033 15.8656 13.5066 15.1248 13.5066ZM15.1248 17.4166C13.694 17.4166 12.5298 16.2591 12.5298 14.8366C12.5298 13.4141 13.694 12.2566 15.1248 12.2566C16.5548 12.2566 17.7181 13.4141 17.7181 14.8366C17.7181 16.2591 16.5548 17.4166 15.1248 17.4166Z"
+                fill="white"></path>
+            </g>
+          </svg>
+        </button>
+        <div class="search-bar">
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_2_149" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="2" y="1" width="17"
+              height="17">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M2.25586 1.66675H18.4865V17.8976H2.25586V1.66675Z"
+                fill="white"></path>
+            </mask>
+            <g mask="url(#mask0_2_149)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M10.3714 2.91675C6.58562 2.91675 3.50562 5.99591 3.50562 9.78175C3.50562 13.5676 6.58562 16.6476 10.3714 16.6476C14.1564 16.6476 17.2364 13.5676 17.2364 9.78175C17.2364 5.99591 14.1564 2.91675 10.3714 2.91675ZM10.3714 17.8976C5.89645 17.8976 2.25562 14.2567 2.25562 9.78175C2.25562 5.30675 5.89645 1.66675 10.3714 1.66675C14.8464 1.66675 18.4864 5.30675 18.4864 9.78175C18.4864 14.2567 14.8464 17.8976 10.3714 17.8976Z"
+                fill="#2B2B2B"></path>
+            </g>
+            <mask id="mask1_2_149" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="14" y="14" width="6"
+              height="5">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.9558 14.7559H19.1425V18.9348H14.9558V14.7559Z"
+                fill="white"></path>
+            </mask>
+            <g mask="url(#mask1_2_149)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M18.5177 18.9348C18.3585 18.9348 18.1985 18.874 18.076 18.7523L15.1394 15.824C14.8952 15.5798 14.8944 15.184 15.1385 14.9398C15.3819 14.694 15.7777 14.6957 16.0227 14.9382L18.9594 17.8673C19.2035 18.1115 19.2044 18.5065 18.9602 18.7507C18.8385 18.874 18.6777 18.9348 18.5177 18.9348Z"
+                fill="#2B2B2B"></path>
+            </g>
+          </svg>
+          <input type="text" placeholder="Search coffee" class="search-input">
+        </div>
+      </div>
+      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c285e9f148b555106f313e122ae818233078f4e" class="logo"
+        alt="Logo" />
+        <div class="user-logo-container">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/be0fb604e4ef3e5acbbf0bdcef1392e456613b37"
+            alt="Account"
+            class="account-image"
+          />
+        </div>
+    </header>
+
+    <main class="main-content">
+      <section class="hero-container">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/df4e25e000138e44e466703a338e73d5842dfad4" alt="Coffee"
+          class="main-coffee-image" />
+        <h1 class="hero-title">Mocha Fusi</h1>
+      </section>
+
+      <div class="recipe-content">
+        <div class="ingredients-section">
+          <h2 class="recipe-section-title">Ingredients:</h2>
+          <ul class="ingredients-list">
+            <li>2 oz vodka</li>
+            <li>1 oz coffee liqueur (such as Kahlúa)</li>
+            <li>1 oz chocolate syrup</li>
+            <li>1 oz heavy cream (or coconut cream for a dairy-free version)</li>
+            <li>1/2 oz espresso (chilled)</li>
+            <li>Ice</li>
+            <li>Whipped cream and chocolate shavings (for garnish)</li>
+          </ul>
+        </div>
+
+        <div class="recipe-card">
+          <h2 class="recipe-section-title">Instructions:</h2>
+          <ol class="instructions-list">
+            <li>In a cocktail shaker, combine the vodka, coffee liqueur, chocolate syrup, heavy cream (or coconut
+              cream), and chilled espresso.</li>
+            <li>Add ice to the shaker and shake well until the mixture is chilled.</li>
+            <li>Strain the mixture into a chilled glass filled with ice.</li>
+            <li>Garnish with whipped cream and chocolate shavings.</li>
+            <li>Serve and enjoy!</li>
+          </ol>
+        </div>
+
+        <div class="recipe-card">
+          <h2 class="recipe-section-title">Dietary Information & Considerations</h2>
+          <div class="substitutions-container">
+            <div class="substitution-section">
+            <h3 class="substitution-heading">Dietary Considerations:</h3>
+            <ul class="substitution-list">
+              <li><strong>Gluten-Free:</strong> Ensure all ingredients used are gluten-free.</li>
+              <li><strong>Dairy-Free:</strong> Use coconut cream and dairy-free whipped cream.</li>
+              <li><strong>Vegan:</strong> Use coconut cream and vegan whipped cream.</li>
+              <li><strong>Low-Sugar:</strong> Use a sugar-free chocolate syrup and reduce the amount to 1/2 oz.</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-card">
+          <h2 class="recipe-section-title">Nutrition Information</h2>
+          <div class="substitution-section">
+            <h3 class="substitution-heading">Nutritional Information (per serving):</h3>
+            <ul class="substitution-list">
+              <li><strong>Calories:</strong> 250</li>
+              <li><strong>Total Fat:</strong> 10g</li>
+              <li><strong>Saturated Fat:</strong> 6g</li>
+              <li><strong>Cholesterol:</strong> 30mg</li>
+              <li><strong>Sodium:</strong> 20mg</li>
+              <li><strong>Total Carbohydrates:</strong> 20g</li>
+              <li><strong>Dietary Fiber:</strong> 1g</li>
+              <li><strong>Sugars:</strong> 15g</li>
+              <li><strong>Protein:</strong> 2g</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tips-section">
+          <h2 class="tips-title
+            ">Tips & Tricks</h2>
+          <ul class="tips-list">
+            <li>For a stronger coffee flavor, use a double shot of espresso.</li>
+            <li>For a sweeter drink, add more chocolate syrup or a splash of simple syrup.</li>
+            <li>For a lighter drink, use half-and-half or milk instead of heavy cream.</li>
+            <li>For a fun twist, try adding a pinch of cinnamon or nutmeg to the drink.</li>
+            <li>For a non-alcoholic version, omit the vodka and coffee liqueur and use extra espresso and chocolate
+              syrup.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+
+    <footer class="footer">
+      <div class="footer-item footer-item-active" onclick="window.location.href='home.html';" style="cursor: pointer;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M9.14373 20.7821V17.7152C9.14372 16.9381 9.77567 16.3067 10.5584 16.3018H13.4326C14.2189 16.3018 14.8563 16.9346 14.8563 17.7152V20.7732C14.8562 21.4473 15.404 21.9951 16.0829 22H18.0438C18.9596 22.0023 19.8388 21.6428 20.4872 21.0007C21.1356 20.3586 21.5 19.4868 21.5 18.5775V9.86585C21.5 9.13139 21.1721 8.43471 20.6046 7.9635L13.943 2.67427C12.7785 1.74912 11.1154 1.77901 9.98539 2.74538L3.46701 7.9635C2.87274 8.42082 2.51755 9.11956 2.5 9.86585V18.5686C2.5 20.4637 4.04738 22 5.95617 22H7.87229C8.19917 22.0023 8.51349 21.8751 8.74547 21.6464C8.97746 21.4178 9.10793 21.1067 9.10792 20.7821H9.14373Z"
+            fill="#C67C4E"></path>
+        </svg>
+        <div class="active-indicator"></div>
+      </div>
+      <div class="footer-item footer-item-active"onclick="window.location.href='fav.html';" style="cursor: pointer;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="mask0_2_176" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="2" y="3" width="21"
+            height="20">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 3H22.4725V22.501H2V3Z" fill="white"></path>
+          </mask>
+          <g mask="url(#mask0_2_176)">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M3.82371 12.1231C5.22571 16.4851 10.7647 20.0121 12.2367 20.8851C13.7137 20.0031 19.2927 16.4371 20.6497 12.1271C21.5407 9.34112 20.7137 5.81212 17.4277 4.75312C15.8357 4.24212 13.9787 4.55312 12.6967 5.54512C12.4287 5.75112 12.0567 5.75512 11.7867 5.55112C10.4287 4.53012 8.65471 4.23112 7.03771 4.75312C3.75671 5.81112 2.93271 9.34012 3.82371 12.1231ZM12.2377 22.5011C12.1137 22.5011 11.9907 22.4711 11.8787 22.4101C11.5657 22.2391 4.19271 18.1751 2.39571 12.5811C2.39471 12.5811 2.39471 12.5801 2.39471 12.5801C1.26671 9.05812 2.52271 4.63212 6.57771 3.32512C8.48171 2.70912 10.5567 2.98012 12.2347 4.03912C13.8607 3.01112 16.0207 2.72712 17.8867 3.32512C21.9457 4.63412 23.2057 9.05912 22.0787 12.5801C20.3397 18.1101 12.9127 22.2351 12.5977 22.4081C12.4857 22.4701 12.3617 22.5011 12.2377 22.5011Z"
+              fill="#C62828"></path>
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.1537 10.6248C17.7667 10.6248 17.4387 10.3278 17.4067 9.93578C17.3407 9.11378 16.7907 8.41978 16.0077 8.16678C15.6127 8.03878 15.3967 7.61578 15.5237 7.22278C15.6527 6.82878 16.0717 6.61478 16.4677 6.73878C17.8307 7.17978 18.7857 8.38678 18.9027 9.81378C18.9357 10.2268 18.6287 10.5888 18.2157 10.6218C18.1947 10.6238 18.1747 10.6248 18.1537 10.6248Z"
+            fill="#C62828"></path>
+        </svg>
+      </div>
+      <div class="footer-item footer-item-active"onclick="window.location.href='contact.html';" style="cursor: pointer;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="mask0_2_177" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="2" y="6" width="20"
+            height="17">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 6.54053H21.5859V22.7221H2V6.54053Z" fill="white"></path>
+          </mask>
+          <g mask="url(#mask0_2_177)">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6.71553 8.04053C6.27453 8.04053 4.80053 8.21853 4.37753 10.5025L3.60553 16.5025C3.35453 18.1855 3.54853 19.4035 4.18353 20.1405C4.81053 20.8685 5.93253 21.2225 7.61253 21.2225H15.9605C17.0085 21.2225 18.4395 21.0135 19.3035 20.0155C19.9895 19.2245 20.2255 18.0465 20.0055 16.5135L19.2265 10.4615C18.8945 8.97053 18.0185 8.04053 16.8945 8.04053H6.71553ZM15.9605 22.7225H7.61253C5.46953 22.7225 3.97653 22.1975 3.04753 21.1185C2.11453 20.0365 1.80253 18.4135 2.12053 16.2955L2.89653 10.2695C3.40653 7.50653 5.27153 6.54053 6.71553 6.54053H16.8945C18.3445 6.54053 20.1075 7.50353 20.7025 10.2045L21.4915 16.3115C21.7745 18.2825 21.4205 19.8635 20.4375 20.9975C19.4595 22.1255 17.9115 22.7225 15.9605 22.7225Z"
+              fill="#EB8F00"></path>
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M16.0977 7.82049C15.6837 7.82049 15.3477 7.48449 15.3477 7.07049C15.3477 5.10149 13.7457 3.50049 11.7777 3.50049H11.7627C10.8217 3.50049 9.90472 3.87949 9.23972 4.54049C8.57172 5.20549 8.18872 6.12849 8.18872 7.07049C8.18872 7.48449 7.85272 7.82049 7.43872 7.82049C7.02472 7.82049 6.68872 7.48449 6.68872 7.07049C6.68872 5.73149 7.23272 4.42249 8.18072 3.47749C9.12572 2.53849 10.4287 2.00049 11.7597 2.00049H11.7807C14.5737 2.00049 16.8477 4.27449 16.8477 7.07049C16.8477 7.48449 16.5117 7.82049 16.0977 7.82049Z"
+            fill="#422B0D"></path>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M14.7433 12.3242H14.6973C14.2833 12.3242 13.9473 11.9882 13.9473 11.5742C13.9473 11.1602 14.2833 10.8242 14.6973 10.8242C15.1113 10.8242 15.4703 11.1602 15.4703 11.5742C15.4703 11.9882 15.1573 12.3242 14.7433 12.3242Z"
+            fill="#422B0D"></path>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M8.91219 12.3242H8.86719C8.45319 12.3242 8.11719 11.9882 8.11719 11.5742C8.11719 11.1602 8.45319 10.8242 8.86719 10.8242C9.28119 10.8242 9.64019 11.1602 9.64019 11.5742C9.64019 11.9882 9.32619 12.3242 8.91219 12.3242Z"
+            fill="#422B0D"></path>
+        </svg>
+      </div>
+      <div class="footer-item footer-item-active"onclick="window.location.href='feedback.html';" style="cursor: pointer;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="mask0_2_178" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="3" y="1" width="19"
+            height="18">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3 1H21.4969V18.348H3V1Z" fill="white"></path>
+          </mask>
+          <g mask="url(#mask0_2_178)">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12.247 2.5C8.75201 2.5 6.31601 5.238 6.31601 7.695C6.31601 9.774 5.73901 10.735 5.22901 11.583C4.82001 12.264 4.49701 12.802 4.49701 13.971C4.66401 15.857 5.90901 16.848 12.247 16.848C18.55 16.848 19.834 15.813 20 13.906C19.997 12.802 19.674 12.264 19.265 11.583C18.755 10.735 18.178 9.774 18.178 7.695C18.178 5.238 15.742 2.5 12.247 2.5ZM12.247 18.348C7.57101 18.348 3.34501 18.018 3.00001 14.035C2.99701 12.387 3.50001 11.549 3.94401 10.811C4.39301 10.063 4.81601 9.358 4.81601 7.695C4.81601 4.462 7.80201 1 12.247 1C16.692 1 19.678 4.462 19.678 7.695C19.678 9.358 20.101 10.063 20.55 10.811C20.994 11.549 21.497 12.387 21.497 13.971C21.148 18.018 16.923 18.348 12.247 18.348Z"
+              fill="black"></path>
+          </g>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.1983 22.5001H12.1963C11.0753 22.4991 10.0143 22.0051 9.20927 21.1081C8.93227 20.8011 8.95727 20.3261 9.26527 20.0501C9.57327 19.7721 10.0473 19.7971 10.3243 20.1061C10.8423 20.6831 11.5073 21.0001 12.1973 21.0001H12.1983C12.8913 21.0001 13.5593 20.6831 14.0783 20.1051C14.3563 19.7981 14.8303 19.7731 15.1373 20.0501C15.4453 20.3271 15.4703 20.8021 15.1933 21.1091C14.3853 22.0061 13.3223 22.5001 12.1983 22.5001Z"
+            fill="black"></path>
+        </svg>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
